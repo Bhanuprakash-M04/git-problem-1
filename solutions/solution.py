@@ -10,3 +10,5 @@ class Solution:
                     cnt += 1
             ans[i] = cnt
         return ans
+    #print result
+    
