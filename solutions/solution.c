@@ -26,5 +26,6 @@ int *smallerNumbersThanCurrent(int *nums, int numsSize, int *returnSize)
         res[i] = cnt;
     }
     // print the result
+    // just for checking purpose
     return res;
 }
