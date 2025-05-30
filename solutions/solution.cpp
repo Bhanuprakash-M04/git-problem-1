@@ -18,7 +18,6 @@ public:
             }
             ans.push_back(cnt);
         }
-        // print the answer
         return ans;
     }
 };

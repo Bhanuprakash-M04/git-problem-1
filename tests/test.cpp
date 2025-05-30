@@ -45,9 +45,11 @@ void runTestCases()
         {3, 0, 2, 0, 3}};
 
     int passed = 0, failed = 0;
+    Solution sol;
+
     for (size_t i = 0; i < inputs.size(); ++i)
     {
-        vector<int> result = smallerNumbersThanCurrent(inputs[i]);
+        vector<int> result = sol.smallerNumbersThanCurrent(inputs[i]);
 
         cout << "Test Case " << i + 1 << ":" << endl;
         cout << "Expected: ";
@@ -70,10 +72,4 @@ void runTestCases()
     cout << "Test Cases Passed: " << passed << endl;
     cout << "Test Cases Failed: " << failed << endl;
     cout << "Total Test Cases: " << passed + failed << endl;
-}
-
-int main()
-{
-    runTestCases();
-    return 0;
 }
