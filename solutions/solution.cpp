@@ -7,6 +7,5 @@ public:
     vector<int> smallerNumbersThanCurrent(vector<int> &nums)
     {
         // write your code here
-        return {};
-    }
+        }
 };
