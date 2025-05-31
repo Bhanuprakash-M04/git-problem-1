@@ -1,4 +1,4 @@
-from solutions.solution import smallerNumbersThanCurrent
+from solutions.solution import Solution
 
 def compare_arrays(a, b):
     return a == b
@@ -32,8 +32,10 @@ def run_test_cases():
     passed = 0
     failed = 0
 
+    solution = Solution()  # ✅ Create instance once
+
     for i, (inp, expected) in enumerate(zip(inputs, expecteds)):
-        result = smallerNumbersThanCurrent(inp)
+        result = solution.smallerNumbersThanCurrent(inp)
         print(f"Test Case {i + 1}:")
         print("Expected: ", end="")
         print_array(expected)
@@ -50,6 +52,9 @@ def run_test_cases():
     print(f"Test Cases Passed: {passed}")
     print(f"Test Cases Failed: {failed}")
     print(f"Total Test Cases: {passed + failed}")
+
+    if failed > 0:
+        exit(1)
 
 if __name__ == "__main__":
     run_test_cases()
