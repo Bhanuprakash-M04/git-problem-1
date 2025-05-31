@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../solutions/solution.c"
+#include "../solutions/solution.c" // Make sure this path is correct
 
 // Compare two arrays
 bool compareArrays(int *arr1, int size1, int *arr2, int size2)
@@ -30,7 +30,7 @@ void printArray(int *arr, int size)
 }
 
 // Test runner
-void runTestCases()
+int runTestCases()
 {
     int passed = 0, failed = 0;
 
@@ -92,10 +92,12 @@ void runTestCases()
     printf("Test Cases Passed: %d\n", passed);
     printf("Test Cases Failed: %d\n", failed);
     printf("Total Test Cases: %d\n", passed + failed);
+
+    // Return failure if even one test failed
+    return (failed > 0) ? 1 : 0;
 }
 
 int main()
 {
-    runTestCases();
-    return 0;
+    return runTestCases(); // 👈 return 1 if any test fails
 }
