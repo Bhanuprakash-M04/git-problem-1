@@ -6,6 +6,6 @@
  */
 int *smallerNumbersThanCurrent(int *nums, int numsSize, int *returnSize)
 {
-
+    // write your code here
     return 0;
 }
