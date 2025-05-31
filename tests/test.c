@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../solutions/solution.c" // Make sure this path is correct
+#include "../solutions/solution.c"
 
 // Compare two arrays
 bool compareArrays(int *arr1, int size1, int *arr2, int size2)
@@ -29,7 +29,7 @@ void printArray(int *arr, int size)
     printf("]\n");
 }
 
-// Test runner
+// Test runner returns number of failed test cases
 int runTestCases()
 {
     int passed = 0, failed = 0;
@@ -66,24 +66,31 @@ int runTestCases()
 
     for (int t = 0; t < numTests; t++)
     {
-        int returnSize;
+        int returnSize = 0;
         int *result = smallerNumbersThanCurrent(inputs[t], sizes[t], &returnSize);
 
         printf("Test Case %d:\n", t + 1);
         printf("Expected: ");
         printArray(expecteds[t], sizes[t]);
         printf("Got:      ");
-        printArray(result, returnSize);
-
-        if (compareArrays(result, returnSize, expecteds[t], sizes[t]))
+        if (result == NULL)
         {
-            printf("✅ Passed\n\n");
-            passed++;
+            printf("NULL (no result returned)\n");
+            failed++;
         }
         else
         {
-            printf("❌ Failed\n\n");
-            failed++;
+            printArray(result, returnSize);
+            if (compareArrays(result, returnSize, expecteds[t], sizes[t]))
+            {
+                printf("✅ Passed\n\n");
+                passed++;
+            }
+            else
+            {
+                printf("❌ Failed\n\n");
+                failed++;
+            }
         }
 
         free(result);
@@ -93,11 +100,11 @@ int runTestCases()
     printf("Test Cases Failed: %d\n", failed);
     printf("Total Test Cases: %d\n", passed + failed);
 
-    // Return failure if even one test failed
-    return (failed > 0) ? 1 : 0;
+    return failed; // Return number of failed test cases
 }
 
 int main()
 {
-    return runTestCases(); // 👈 return 1 if any test fails
+    int failed = runTestCases();
+    return (failed > 0) ? 1 : 0; // Exit with code 1 if any test failed
 }
