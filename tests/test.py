@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath('.'))
+
 from solutions.solution import Solution
 
 def compare_arrays(a, b):
@@ -32,7 +36,7 @@ def run_test_cases():
     passed = 0
     failed = 0
 
-    solution = Solution()  # ✅ Create instance once
+    solution = Solution()
 
     for i, (inp, expected) in enumerate(zip(inputs, expecteds)):
         result = solution.smallerNumbersThanCurrent(inp)
