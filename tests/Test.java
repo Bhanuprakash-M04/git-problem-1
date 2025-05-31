@@ -62,5 +62,10 @@ public class Test {
         System.out.println("Test Cases Passed: " + passed);
         System.out.println("Test Cases Failed: " + failed);
         System.out.println("Total Test Cases: " + (passed + failed));
+
+        if (failed > 0) {
+            System.exit(1);
+        }
+
     }
 }
