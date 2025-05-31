@@ -1,26 +1,6 @@
 #include <bits/stdc++.h>
+#include "../solutions/solution.cpp" // 👈 Include the Solution class
 using namespace std;
-
-class Solution
-{
-public:
-    vector<int> smallerNumbersThanCurrent(vector<int> &nums)
-    {
-        vector<int> ans;
-        int n = nums.size();
-        for (int i = 0; i < n; i++)
-        {
-            int cnt = 0;
-            for (int j = 0; j < n; j++)
-            {
-                if (i != j && nums[i] > nums[j])
-                    cnt++;
-            }
-            ans.push_back(cnt);
-        }
-        return ans;
-    }
-};
 
 bool compareArrays(const vector<int> &a, const vector<int> &b)
 {
@@ -39,7 +19,7 @@ void printArray(const vector<int> &arr)
     cout << "]" << endl;
 }
 
-void runTestCases()
+int runTestCases()
 {
     vector<vector<int>> inputs = {
         {8, 1, 2, 2, 3},
@@ -89,10 +69,11 @@ void runTestCases()
     cout << "Test Cases Passed: " << passed << endl;
     cout << "Test Cases Failed: " << failed << endl;
     cout << "Total Test Cases: " << passed + failed << endl;
+
+    return (failed > 0) ? 1 : 0;
 }
 
 int main()
 {
-    runTestCases();
-    return 0;
+    return runTestCases();
 }
